@@ -145,7 +145,11 @@ class ComingSoonTest extends TestCase
 
     public function test_application_login_and_panel_access_remain_protected(): void
     {
+        config(['coming-soon.except_routes' => []]);
         $this->enableComingSoon();
+        $this->get(route('login'))->assertRedirectToRoute('coming-soon.index');
+
+        config(['coming-soon.except_routes' => ['login', 'filament.*']]);
 
         $this->get(route('login'))->assertOk();
         $this->get('/admin')->assertRedirectToRoute('login');
