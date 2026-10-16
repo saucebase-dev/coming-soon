@@ -1,0 +1,17 @@
+name: Coming Soon Module Tests
+
+on:
+    pull_request:
+        branches: [main]
+    push:
+        branches: [main]
+
+permissions:
+    contents: read
+
+jobs:
+    test:
+        uses: saucebase-dev/core/.github/workflows/test-module.yml@main
+        with:
+            module: coming-soon
+            dependencies: saucebase/auth
