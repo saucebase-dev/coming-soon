@@ -29,7 +29,7 @@ lowercases `ComingSoon` to `comingsoon`, which is not this module's directory.
 ## Frontend
 
 The installed frontend lives in `resources/js/`. The page renders escaped plain
-text with SSR and no site navigation. The banner registers in core's `bottom` slot
+text with SSR and no site navigation. The banner registers in core's `app::page.after` slot
 and stays fixed at the bottom so it does not cover the navbar. It reads
 `comingSoon.showBanner`; `comingSoon.settingsUrl` links to the admin settings only
 for users with both `manage settings` and `access admin panel`. It is persistent
