@@ -3,7 +3,7 @@
   "description": "A configurable coming soon page and site access gate for Saucebase.",
   "type": "saucebase-module",
   "license": "MIT",
-  "version": "v1.0.0",
+  "version": "v1.0.1",
   "authors": [
     {
       "name": "Saucebase",
