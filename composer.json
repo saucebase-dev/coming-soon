@@ -36,6 +36,6 @@
   },
   "minimum-stability": "stable",
   "require": {
-    "saucebase/core": "^2.0"
+    "saucebase/core": "^2.8"
   }
 }
