@@ -12,6 +12,12 @@ class ComingSoonSettingsTest extends TestCase
 {
     use RefreshDatabase;
 
+    /** After API tokens (90), before Admin theme (110). */
+    public function test_it_sits_at_the_bottom_of_settings(): void
+    {
+        $this->assertSame(100, (new \ReflectionProperty(SettingsPage::class, 'navigationSort'))->getValue());
+    }
+
     public function test_settings_managers_can_save_and_disable_coming_soon(): void
     {
         $user = $this->createUser();
