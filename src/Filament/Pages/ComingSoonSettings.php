@@ -14,6 +14,9 @@ use Saucebase\Core\Filament\Pages\SettingsPage;
 
 class ComingSoonSettings extends SettingsPage
 {
+    /** Settings' bottom: 90 API tokens, 100 Coming Soon, 110 Admin theme. */
+    protected static ?int $navigationSort = 100;
+
     protected static string $settings = Settings::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClock;
