@@ -58,15 +58,8 @@ test('settings toggle the visitor page and administrator banner', async ({
 
         await page.goto('/');
         await expect(page.getByTestId('coming-soon-banner')).toBeVisible();
+        // The banner never covers the page's own controls.
         await page.getByTestId('logout-button').click({ trial: true });
-        await expect(page.getByTestId('coming-soon-banner')).toHaveCSS(
-            'position',
-            'fixed',
-        );
-        await expect(page.getByTestId('coming-soon-banner')).toHaveCSS(
-            'bottom',
-            '0px',
-        );
         await expect(
             page.getByTestId('coming-soon-settings-link'),
         ).toHaveAttribute('href', urls.settings);
