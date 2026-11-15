@@ -21,6 +21,9 @@
         "vue",
         "react"
       ]
+    },
+    "branch-alias": {
+      "dev-dev": "1.1.x-dev"
     }
   },
   "autoload": {
@@ -36,6 +39,6 @@
   },
   "minimum-stability": "stable",
   "require": {
-    "saucebase/core": "^2.8"
+    "saucebase/core": "^3.0"
   }
 }
