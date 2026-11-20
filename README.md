@@ -51,7 +51,7 @@ While Coming Soon is on, a link someone opens from an email is a page visit like
 
 The route name stays `coming-soon.index`. Rebuild the route cache after changing the path. When disabled, the Coming Soon URL redirects to `/`.
 
-Users with `manage settings` bypass redirects and see the banner. Its settings link is shown only to users who also have `access admin panel`. The module uses Laravel authentication and core permissions; it does not require the Auth module.
+Users with `manage settings` bypass redirects and see the banner. Its settings link is shown only to users who also have `access admin panel`. The module uses Laravel authentication and core permissions, and requires no other module.
 
 Only HTML GET/HEAD and Inertia page visits redirect. APIs, submissions, assets, and unknown URLs keep their normal behavior. This does not replace authentication or Laravel maintenance mode.
 
