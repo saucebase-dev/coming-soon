@@ -20,7 +20,9 @@ own route. Users with `manage settings` bypass redirects.
 
 `config/config.php` supplies `path` and `except_routes` defaults. Applications
 supply their own login/panel exceptions in `config/coming-soon.php`; never put
-other modules' route names in this module. A changed path requires rebuilding a
+other modules' route names in this module, its config or its docs. Links opened from
+emails are page visits too, redirected like any other; the README's "Links in emails"
+leaves their exceptions to the application. A changed path requires rebuilding a
 cached route table. When disabled, the public route redirects to `/`.
 
 The Filament plugin registers its one page explicitly: core 1.13's discovery trait
@@ -29,11 +31,12 @@ lowercases `ComingSoon` to `comingsoon`, which is not this module's directory.
 ## Frontend
 
 The installed frontend lives in `resources/js/`. The page renders escaped plain
-text with SSR and no site navigation. The banner registers in core's `app::page.after` slot
-and stays fixed at the bottom so it does not cover the navbar. It reads
-`comingSoon.showBanner`; `comingSoon.settingsUrl` links to the admin settings only
-for users with both `manage settings` and `access admin panel`. It is persistent
-and has no announcement dependency.
+text with SSR and no site navigation. `ComingSoonBannerSlot` registers in core's
+`app::page.after` slot and reads the page: it shows `ComingSoonBanner` while
+`comingSoon.showBanner` is on. `comingSoon.settingsUrl` links to the admin settings only
+for users with both `manage settings` and `access admin panel`. The banner takes the link as
+a prop (`settingsUrl`), so its stories need no page; E2E covers the slot. It stays fixed at
+the bottom so it does not cover the navbar, is persistent, and has no announcement dependency.
 Keep Vue and React contributor sources in step.
 
 ## Verification

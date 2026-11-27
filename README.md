@@ -45,9 +45,13 @@ Coming Soon is off by default. Enable it and edit the page text in the admin pan
 
 Set `path` and `except_routes` in the application's `config/coming-soon.php`. The default path is `/coming-soon`; choose a path separate from the homepage. Route exceptions accept names and wildcard patterns. Allow the application's login and admin routes so administrators can still sign in and manage settings.
 
+### Links in emails
+
+While Coming Soon is on, a link someone opens from an email is a page visit like any other, so it lands on the Coming Soon page unless its route is in `except_routes`. That includes the page the link redirects to afterwards. This module ships no exceptions: which emailed links must work before launch is the application's decision, so add their routes to the application's `config/coming-soon.php`, never to this module. A visitor who signs in without `manage settings` is still sent to the Coming Soon page.
+
 The route name stays `coming-soon.index`. Rebuild the route cache after changing the path. When disabled, the Coming Soon URL redirects to `/`.
 
-Users with `manage settings` bypass redirects and see the banner. Its settings link is shown only to users who also have `access admin panel`. The module uses Laravel authentication and core permissions; it does not require the Auth module.
+Users with `manage settings` bypass redirects and see the banner. Its settings link is shown only to users who also have `access admin panel`. The module uses Laravel authentication and core permissions, and requires no other module.
 
 Only HTML GET/HEAD and Inertia page visits redirect. APIs, submissions, assets, and unknown URLs keep their normal behavior. This does not replace authentication or Laravel maintenance mode.
 

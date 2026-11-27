@@ -1,6 +1,6 @@
 import { registerGlobalComponent } from '@saucebase/vue/lib/globalComponents';
-import ComingSoonBanner from './components/ComingSoonBanner.vue';
+import ComingSoonBannerSlot from './components/ComingSoonBannerSlot.vue';
 
 export function setup() {
-    registerGlobalComponent('app::page.after', ComingSoonBanner);
+    registerGlobalComponent('app::page.after', ComingSoonBannerSlot);
 }

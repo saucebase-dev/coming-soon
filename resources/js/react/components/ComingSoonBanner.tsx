@@ -1,13 +1,13 @@
-import { usePage } from '@inertiajs/react';
 import { useT } from '@saucebase/react/i18n';
 
-export default function ComingSoonBanner() {
-    const { comingSoon } = usePage().props;
-    const t = useT();
+type Props = {
+    /** Coming soon's settings, for an admin who may change them. */
+    settingsUrl?: string | null;
+};
 
-    if (!comingSoon?.showBanner) {
-        return null;
-    }
+/** Tells an admin that visitors see the coming-soon page. */
+export function ComingSoonBanner({ settingsUrl }: Props) {
+    const t = useT();
 
     return (
         <output
@@ -16,9 +16,9 @@ export default function ComingSoonBanner() {
             data-testid="coming-soon-banner"
         >
             <span>{t('Coming Soon is active for non-admin users.')}</span>
-            {comingSoon.settingsUrl && (
+            {settingsUrl && (
                 <a
-                    href={comingSoon.settingsUrl}
+                    href={settingsUrl}
                     className="underline underline-offset-4"
                     data-testid="coming-soon-settings-link"
                 >

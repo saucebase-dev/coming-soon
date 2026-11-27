@@ -1,6 +1,6 @@
 import { registerGlobalComponent } from '@saucebase/react/lib/globalComponents';
-import ComingSoonBanner from './components/ComingSoonBanner';
+import { ComingSoonBannerSlot } from './components/ComingSoonBannerSlot';
 
 export function setup() {
-    registerGlobalComponent('app::page.after', ComingSoonBanner);
+    registerGlobalComponent('app::page.after', ComingSoonBannerSlot);
 }
